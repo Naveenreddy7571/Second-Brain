@@ -1,6 +1,10 @@
 import mongoose, { Types } from "mongoose";
 
+<<<<<<< HEAD
 mongoose.connect("mongodb://localhost:27017/second-brain")
+=======
+mongoose.connect("mongodb+srv://bnkreddy7571:MuuM8C1ef130xGyu@cluster0.yy1ma.mongodb.net/secondbrain")
+>>>>>>> bb17791 (reslove the biuld error)
 
 const userSchema = new mongoose.Schema({
     username:{type:String,required:true,unique:true},
