@@ -2,7 +2,7 @@ import express from "express";
 import zod from "zod";
 import { User, Tags, Link, Content } from "./db";
 import jwt from "jsonwebtoken";
-import bcrypt from 'bcrypt';
+import bcrypt from '@node-rs/bcrypt';
 import * as dotenv from 'dotenv';
 import { authMiddleware } from "./middlewares";
 import { random } from "./utils";
@@ -73,8 +73,8 @@ app.post("/api/v1/signup", async (req, res): Promise<any> => {
     }
 
     const userPassword = req.body.password;
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(userPassword, salt);
+    const hashedPassword = await bcrypt.hash(userPassword, 10); 
+
 
     user = await User.create({
         username: req.body.username,
