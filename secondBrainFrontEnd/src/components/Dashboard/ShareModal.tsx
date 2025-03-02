@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState } from "react";
 import Close from "../../assets/Close";
 import Button from "../../Ui/Button";
@@ -21,7 +23,7 @@ function ShareModal({ isShareOpened, setIsShareOpened, noofItems, onClose }: Sha
     try {
       setLoading(true);
       const response = await shareBrainService(true); 
-      setSharedLink(`http://localhost:3000/api/v1/brain/${response.hash}`);
+      setSharedLink(`https://second-brain-backend-beta.vercel.app/api/v1/brain/${response.hash}`);
     } catch (error: any) {
       toast.error(error.response?.data || "Error sharing brain");
     } finally {

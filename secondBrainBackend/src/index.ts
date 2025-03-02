@@ -14,10 +14,20 @@ const port: number = 3000;
 const JWT_SECRET: string = process.env.JWT_SECRET || '';
 app.use(express.json());
 app.use(cors({
-    origin: "https://second-brain-pink.vercel.app", 
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: ["https://second-brain-pink.vercel.app"],  
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
+    allowedHeaders: ["Content-Type", "Authorization"],    
     credentials: true 
 }));
+
+app.options('*', cors());
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://second-brain-pink.vercel.app");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    next();
+  });
 
 const signuporinSchema = zod.object({
     username: zod.string().min(3).max(40),

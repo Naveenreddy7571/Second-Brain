@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useState } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
