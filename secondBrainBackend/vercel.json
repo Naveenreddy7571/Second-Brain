@@ -12,6 +12,11 @@
     "routes": [
       {
         "src": "/(.*)",
+        "headers": {
+          "Access-Control-Allow-Origin": "https://second-brain-pink.vercel.app",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization"
+        },
         "dest": "dist/index.js"
       }
     ]

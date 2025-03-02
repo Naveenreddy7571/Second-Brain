@@ -14,7 +14,7 @@ const port: number = 3000;
 const JWT_SECRET: string = process.env.JWT_SECRET || '';
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5173", 
+    origin: "https://second-brain-pink.vercel.app", 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true 
 }));
