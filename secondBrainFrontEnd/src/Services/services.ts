@@ -1,7 +1,8 @@
 import axios from "axios";
+/* eslint-disable no-useless-catch, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:3000/api/v1", 
+  baseURL: "https://second-brain-backend-beta.vercel.app/api/v1", 
   headers: {
     "Content-Type": "application/json",
   },
