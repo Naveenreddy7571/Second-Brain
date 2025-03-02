@@ -20,14 +20,25 @@ app.use(cors({
     credentials: true 
 }));
 
-app.options('*', cors());
+
+
+
+app.options('*', cors());app.use((req, res, next) => {
+    if (req.method === "OPTIONS") {
+        res.sendStatus(200);
+    } else {
+        next();
+    }
+});
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "https://second-brain-pink.vercel.app");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
     next();
-  });
+});
+
+
 
 const signuporinSchema = zod.object({
     username: zod.string().min(3).max(40),
@@ -44,6 +55,10 @@ const contentSchema = zod.object({
     title: zod.string(),
     tags: zod.array(zod.string())
 })
+
+app.get("/api/v1/test", (req, res) => {
+    res.status(200).send("Test route working!");
+});
 
 
 app.post("/api/v1/signup", async (req, res): Promise<any> => {
