@@ -65,7 +65,7 @@ app.use((0, cors_1.default)({
     credentials: true
 }));
 const signuporinSchema = zod_1.default.object({
-    username: zod_1.default.string().min(3).max(20),
+    username: zod_1.default.string().min(3).max(40),
     password: zod_1.default
         .string()
         .min(8, 'The password must be at least 8 characters long')

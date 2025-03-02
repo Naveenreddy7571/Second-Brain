@@ -20,11 +20,7 @@ app.use(cors({
 }));
 
 const signuporinSchema = zod.object({
-<<<<<<< HEAD
-    username: zod.string().min(3).max(20),
-=======
     username: zod.string().min(3).max(40),
->>>>>>> bb17791 (reslove the biuld error)
     password: zod
         .string()
         .min(8, 'The password must be at least 8 characters long')
